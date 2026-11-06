@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>51视频每日大赛-每日大赛热门视频合集_视频爆料热点速览</title>
+<meta name="description" content="51视频每日大赛汇集每日热门视频与爆料热点，按日期梳理看点、条目与讨论焦点，提供清晰的浏览入口与热点速览路径。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M24 18l16 14-16 14z' fill='%23f97316'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#111827;
+    --ink-soft:#374151;
+    --muted:#6b7280;
+    --line:#e5e7eb;
+    --bg:#f7f7f5;
+    --card:#ffffff;
+    --accent:#f97316;
+    --accent-deep:#c2410c;
+    --dark:#111827;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,sans-serif;
+    font-size:16px;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{
+    width:100%;
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 22px;
+  }
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(247,247,245,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    min-height:66px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:18px;
+    letter-spacing:.3px;
+    color:var(--ink);
+    white-space:nowrap;
+  }
+  .brand .mark{
+    width:34px;height:34px;
+    display:grid;place-items:center;
+    border-radius:10px;
+    background:var(--dark);
+    flex:0 0 auto;
+  }
+  .brand .mark svg{display:block;}
+  nav.main{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+  nav.main a{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    padding:7px 12px;
+    border-radius:9px;
+    transition:background .18s,color .18s;
+  }
+  nav.main a:hover{background:#ececea;color:var(--ink);}
+  .bar-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    background:var(--accent);
+    color:#fff;
+    font-size:14.5px;
+    font-weight:700;
+    padding:9px 16px;
+    border-radius:10px;
+    white-space:nowrap;
+    transition:background .18s;
+  }
+  .bar-cta:hover{background:var(--accent-deep);}
+  /* ---------- hero ---------- */
+  .hero{
+    padding:56px 0 44px;
+    background:
+      radial-gradient(900px 340px at 82% -10%, rgba(249,115,22,.16), transparent 62%),
+      linear-gradient(180deg,#ffffff 0%, var(--bg) 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:44px;
+    align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    font-weight:700;
+    color:var(--accent-deep);
+    background:#fff2e8;
+    border:1px solid #ffd7bd;
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+  .eyebrow .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 3px rgba(249,115,22,.18);
+  }
+  h1{
+    font-size:clamp(30px,4.4vw,46px);
+    line-height:1.22;
+    font-weight:800;
+    letter-spacing:-.5px;
+    margin:0 0 16px;
+  }
+  h1 em{
+    font-style:normal;
+    color:var(--accent-deep);
+  }
+  .lede{
+    font-size:16.5px;
+    color:var(--ink-soft);
+    max-width:38em;
+    margin:0 0 24px;
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    align-items:center;
+  }
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--dark);
+    color:#fff;
+    font-weight:700;
+    font-size:15px;
+    padding:12px 22px;
+    border-radius:11px;
+    transition:transform .16s,background .18s;
+  }
+  .btn-primary:hover{background:#000;transform:translateY(-1px);}
+  .btn-ghost{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--ink);
+    font-weight:600;
+    font-size:15px;
+    padding:11px 20px;
+    border-radius:11px;
+  }
+  .btn-ghost:hover{border-color:#c9cdd4;}
+  .hero-stats{
+    display:flex;
+    gap:26px;
+    margin-top:30px;
+    flex-wrap:wrap;
+  }
+  .hero-stats div{font-size:13.5px;color:var(--muted);}
+  .hero-stats strong{
+    display:block;
+    font-size:21px;
+    color:var(--ink);
+    font-weight:800;
+    letter-spacing:-.3px;
+  }
+  /* hero card */
+  .hero-visual{
+    background:var(--dark);
+    border-radius:18px;
+    padding:22px;
+    color:#e5e7eb;
+    box-shadow:0 22px 50px -28px rgba(17,24,39,.7);
+  }
+  .hv-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-size:13px;
+    color:#9ca3af;
+    margin-bottom:16px;
+  }
+  .hv-badge{
+    background:rgba(249,115,22,.16);
+    color:#fdba74;
+    border:1px solid rgba(249,115,22,.34);
+    padding:3px 10px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:12px;
+  }
+  .hv-row{
+    display:flex;
+    gap:12px;
+    padding:11px 0;
+    border-top:1px solid rgba(255,255,255,.08);
+    align-items:flex-start;
+  }
+  .hv-row:first-of-type{border-top:0;}
+  .hv-idx{
+    flex:0 0 26px;height:26px;
+    border-radius:7px;
+    background:rgba(255,255,255,.07);
+    color:#d1d5db;
+    font-size:12.5px;
+    font-weight:700;
+    display:grid;place-items:center;
+  }
+  .hv-row.hot .hv-idx{background:rgba(249,115,22,.22);color:#fdba74;}
+  .hv-row p{margin:0;font-size:14px;color:#e5e7eb;line-height:1.6;}
+  .hv-row span.tag{
+    display:block;
+    font-size:12px;
+    color:#9ca3af;
+    margin-top:2px;
+  }
+  /* ---------- sections ---------- */
+  section{padding:58px 0;}
+  .sec-head{
+    margin-bottom:30px;
+    max-width:46em;
+  }
+  .sec-kicker{
+    font-size:12.5px;
+    font-weight:800;
+    letter-spacing:1.6px;
+    color:var(--accent-deep);
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  h2{
+    font-size:clamp(22px,2.8vw,29px);
+    font-weight:800;
+    letter-spacing:-.3px;
+    margin:0 0 10px;
+    line-height:1.3;
+  }
+  .sec-head p{
+    margin:0;
+    color:var(--muted);
+    font-size:15.5px;
+  }
+  /* today cards */
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    transition:border-color .18s,transform .18s,box-shadow .18s;
+  }
+  .card:hover{
+    border-color:#d6d9de;
+    transform:translateY(-2px);
+    box-shadow:0 16px 34px -26px rgba(17,24,39,.55);
+  }
+  .card .c-num{
+    font-size:12.5px;
+    font-weight:800;
+    color:var(--accent-deep);
+    letter-spacing:1px;
+  }
+  .card h3{
+    margin:0;
+    font-size:17.5px;
+    font-weight:800;
+    line-height:1.45;
+  }
+  .card p{
+    margin:0;
+    font-size:14.5px;
+    color:var(--ink-soft);
+    line-height:1.7;
+  }
+  .card .c-meta{
+    margin-top:auto;
+    padding-top:12px;
+    border-top:1px dashed var(--line);
+    font-size:12.5px;
+    color:var(--muted);
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+  }
+  /* filter */
+  .filter-band{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px 22px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:24px;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    font-size:13.5px;
+    font-weight:600;
+    padding:7px 15px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:#fbfbfa;
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:all .16s;
+    font-family:inherit;
+  }
+  .chip:hover{border-color:#c9cdd4;}
+  .chip.active{
+    background:var(--dark);
+    border-color:var(--dark);
+    color:#fff;
+  }
+  .search-box{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:#fbfbfa;
+    padding:0 12px;
+    min-width:230px;
+  }
+  .search-box svg{flex:0 0 auto;color:var(--muted);}
+  .search-box input{
+    border:0;
+    outline:0;
+    background:transparent;
+    padding:10px 0;
+    font-size:14.5px;
+    width:100%;
+    font-family:inherit;
+    color:var(--ink);
+  }
+  .result-note{
+    font-size:13.5px;
+    color:var(--muted);
+    margin-bottom:18px;
+  }
+  .list{
+    display:grid;
+    gap:12px;
+  }
+  .item{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:18px 20px;
+    display:grid;
+    grid-template-columns:58px 1fr auto;
+    gap:18px;
+    align-items:center;
+    transition:border-color .16s;
+  }
+  .item:hover{border-color:#d6d9de;}
+  .item .idx{
+    font-size:22px;
+    font-weight:800;
+    color:#d1d5db;
+    letter-spacing:-.5px;
+  }
+  .item h3{
+    margin:0 0 4px;
+    font-size:16.5px;
+    font-weight:800;
+  }
+  .item p{
+    margin:0;
+    font-size:14px;
+    color:var(--ink-soft);
+    line-height:1.65;
+  }
+  .item .views{
+    font-size:13px;
+    font-weight:700;
+    color:var(--accent-deep);
+    background:#fff2e8;
+    border-radius:999px;
+    padding:5px 13px;
+    white-space:nowrap;
+  }
+  .empty{
+    display:none;
+    padding:34px;
+    text-align:center;
+    color:var(--muted);
+    font-size:14.5px;
+    background:#fff;
+    border:1px dashed var(--line);
+    border-radius:12px;
+  }
+  /* explain */
+  .explain{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+  }
+  .article{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px 26px 22px;
+  }
+  .article h3{
+    margin:0 0 10px;
+    font-size:18px;
+    font-weight:800;
+  }
+  .article p{
+    margin:0 0 12px;
+    font-size:14.8px;
+    color:var(--ink-soft);
+    line-height:1.8;
+  }
+  .article p:last-child{margin-bottom:0;}
+  .article ul{
+    margin:0;
+    padding-left:20px;
+    font-size:14.8px;
+    color:var(--ink-soft);
+    line-height:1.85;
+  }
+  .article li{margin-bottom:6px;}
+  .article li strong{color:var(--ink);}
+  /* download */
+  .dl{
+    background:var(--dark);
+    color:#e5e7eb;
+    border-radius:18px;
+    padding:36px 34px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:28px;
+    align-items:center;
+  }
+  .dl h2{color:#fff;margin-bottom:8px;}
+  .dl p{
+    margin:0;
+    font-size:14.8px;
+    color:#9ca3af;
+    max-width:44em;
+    line-height:1.75;
+  }
+  .btn-dl{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    background:var(--accent);
+    color:#fff;
+    font-weight:800;
+    font-size:15px;
+    padding:13px 26px;
+    border-radius:11px;
+    pointer-events:none;
+    opacity:.92;
+  }
+  .btn-dl[aria-disabled="true"]{cursor:not-allowed;}
+  .dl-note{
+    font-size:12.5px;
+    color:#6b7280;
+    margin-top:10px;
+    text-align:right;
+  }
+  /* faq */
+  .faq{display:grid;gap:12px;}
+  details{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:16px 20px;
+  }
+  details[open]{border-color:#d6d9de;}
+  summary{
+    cursor:pointer;
+    font-weight:700;
+    font-size:15.5px;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    align-items:center;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";
+    font-weight:700;
+    color:var(--accent-deep);
+    font-size:19px;
+    line-height:1;
+    flex:0 0 auto;
+  }
+  details[open] summary::after{content:"–";}
+  details p{
+    margin:12px 0 0;
+    font-size:14.5px;
+    color:var(--ink-soft);
+    line-height:1.8;
+  }
+  /* footer */
+  footer.site{
+    border-top:1px solid var(--line);
+    background:#fff;
+    padding:38px 0 30px;
+  }
+  .foot-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:32px;
+    margin-bottom:26px;
+  }
+  .foot-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:16.5px;
+    margin-bottom:10px;
+  }
+  .foot-brand .mark{
+    width:30px;height:30px;
+    display:grid;place-items:center;
+    border-radius:9px;
+    background:var(--dark);
+  }
+  .foot-grid p{
+    margin:0;
+    font-size:13.8px;
+    color:var(--muted);
+    line-height:1.8;
+    max-width:34em;
+  }
+  .foot-col h4{
+    margin:0 0 10px;
+    font-size:13px;
+    letter-spacing:1.2px;
+    color:var(--ink);
+    font-weight:800;
+  }
+  .foot-col a{
+    display:block;
+    font-size:13.8px;
+    color:var(--muted);
+    padding:3px 0;
+  }
+  .foot-col a:hover{color:var(--accent-deep);}
+  .foot-bottom{
+    border-top:1px solid var(--line);
+    padding-top:18px;
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    flex-wrap:wrap;
+    font-size:12.8px;
+    color:var(--muted);
+  }
+  /* responsive */
+  @media (max-width:940px){
+    .hero-grid{grid-template-columns:1fr;gap:32px;}
+    .cards{grid-template-columns:1fr 1fr;}
+    .explain{grid-template-columns:1fr;}
+    .dl{grid-template-columns:1fr;padding:30px 24px;}
+    .dl-note{text-align:left;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:720px){
+    .wrap{padding:0 16px;}
+    .bar{flex-wrap:wrap;padding:10px 0;min-height:0;}
+    nav.main{
+      order:3;
+      width:100%;
+      overflow-x:auto;
+      flex-wrap:nowrap;
+      padding-bottom:2px;
+      -webkit-overflow-scrolling:touch;
+    }
+    nav.main a{white-space:nowrap;padding:6px 10px;font-size:14px;}
+    .hero{padding:36px 0 32px;}
+    .hero-stats{gap:20px;margin-top:24px;}
+    .hero-stats strong{font-size:19px;}
+    section{padding:40px 0;}
+    .cards{grid-template-columns:1fr;}
+    .filter-band{padding:16px;gap:12px;}
+    .search-box{min-width:0;width:100%;}
+    .item{
+      grid-template-columns:1fr;
+      gap:8px;
+      padding:16px;
+    }
+    .item .idx{font-size:16px;color:var(--accent-deep);}
+    .item .views{justify-self:start;}
+    .foot-grid{grid-template-columns:1fr;}
+    h1{letter-spacing:-.2px;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top">
+      <span class="mark" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 5l11 7-11 7V5z" fill="#f97316"/></svg>
+      </span>
+      <span>51视频每日大赛</span>
+    </a>
+    <nav class="main" aria-label="主导航">
+      <a href="#today">今日看点</a>
+      <a href="#ranking">热度榜单</a>
+      <a href="#howto">浏览方式</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="bar-cta" href="#ranking">看榜单</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" id="today">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>每日更新 · 热点聚焦</span>
+        <h1>51视频每日大赛</h1>
+        <p class="lede">每天把当下讨论度最高的视频热点集中到一起：谁在讨论、看点在哪里、哪些条目值得先看。51视频每日大赛按日期与热度两条线组织内容，让你在几分钟内看清当天的话题走向。</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#ranking">
+            查看今日热度榜单
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn-ghost" href="#howto">了解浏览方式</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>每日</strong>更新一轮看点</div>
+          <div><strong>3类</strong>内容分区</div>
+          <div><strong>按热度</strong>排序浏览</div>
+        </div>
+      </div>
+
+      <aside class="hero-visual" aria-label="今日看点速览">
+        <div class="hv-head">
+          <span>今日看点速览</span>
+          <span class="hv-badge">实时热度</span>
+        </div>
+        <div class="hv-row hot">
+          <span class="hv-idx">01</span>
+          <p>热搜视频片段集中出现<span class="tag">讨论焦点 · 关注度高</span></p>
+        </div>
+        <div class="hv-row">
+          <span class="hv-idx">02</span>
+          <p>多平台同话题交叉讨论<span class="tag">观点对比 · 信息密度大</span></p>
+        </div>
+        <div class="hv-row">
+          <span class="hv-idx">03</span>
+          <p>旧内容二次发酵的补充线索<span class="tag">背景梳理 · 前后关联</span></p>
+        </div>
+        <div class="hv-row">
+          <span class="hv-idx">04</span>
+          <p>争议条目的多方说法汇总<span class="tag">口径差异 · 需自行判断</span></p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- TODAY CARDS -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">今日分区</div>
+        <h2>三个入口，覆盖当天的主要看点</h2>
+        <p>51视频每日大赛把当天内容拆成三类任务：快速了解发生了什么、判断哪些条目值得细看、掌握讨论的分歧点。三个入口各自独立，可以按需进入。</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="c-num">01 / 速览</span>
+          <h3>当日热点摘要</h3>
+          <p>用一句话说明每条内容的核心事件与讨论起因，先建立整体印象，再决定是否深入。摘要只陈述可核对的事实与公开讨论方向，不替读者下结论。</p>
+          <div class="c-meta"><span>适合：通勤、碎片时间</span><span>约 3 分钟</span></div>
+        </article>
+        <article class="card">
+          <span class="c-num">02 / 精选</span>
+          <h3>值得细看的条目</h3>
+          <p>把信息量较大、背景较复杂的条目单独列出，补充前因后果与相关时间线。对同一事件的不同说法并列呈现，方便对照阅读。</p>
+          <div class="c-meta"><span>适合：想弄清来龙去脉</span><span>约 8 分钟</span></div>
+        </article>
+        <article class="card">
+          <span class="c-num">03 / 分歧</span>
+          <h3>讨论中的不同声音</h3>
+          <p>记录争议点的来源与各方立场，标注哪些说法已有公开证据、哪些仍停留在猜测。51视频每日大赛在这里的角色是整理，而不是裁判。</p>
+          <div class="c-meta"><span>适合：关注舆情走向</span><span>约 6 分钟</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- RANKING -->
+  <section id="ranking" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">热度榜单</div>
+        <h2>按讨论热度排列的当日条目</h2>
+        <p>榜单顺序反映公开讨论的活跃程度，不代表内容质量或事实结论。可以按类别筛选，也可以直接搜索标题关键词。</p>
+      </div>
+
+      <div class="filter-band">
+        <div class="chips" role="group" aria-label="类别筛选">
+          <button class="chip active" data-cat="all" type="button">全部</button>
+          <button class="chip" data-cat="热点" type="button">热点</button>
+          <button class="chip" data-cat="争议" type="button">争议</button>
+          <button class="chip" data-cat="回顾" type="button">回顾</button>
+        </div>
+        <label class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="searchInput" type="search" placeholder="搜索条目关键词" aria-label="搜索条目关键词">
+        </label>
+      </div>
+
+      <div class="result-note" id="resultNote">当前显示全部条目</div>
+
+      <div class="list" id="rankList">
+        <article class="item" data-cat="热点" data-title="热搜视频片段集中出现">
+          <span class="idx">01</span>
+          <div>
+            <h3>热搜视频片段集中出现</h3>
+            <p>同一段视频在多个平台被反复转发，讨论集中在画面细节与拍摄时间上。现有公开信息只能确认传播路径，拍摄背景尚无统一说法。</p>
+          </div>
+          <span class="views">热度高</span>
+        </article>
+        <article class="item" data-cat="争议" data-title="多方说法并列呈现">
+          <span class="idx">02</span>
+          <div>
+            <h3>多方说法并列呈现</h3>
+            <p>围绕同一事件的几种解释同时流传，彼此在关键时间点上存在出入。条目按说法来源分组列出，保留原始表述，便于读者自行比对。</p>
+          </div>
+          <span class="views">争议中</span>
+        </article>
+        <article class="item" data-cat="热点" data-title="同话题跨平台交叉讨论">
+          <span class="idx">03</span>
+          <div>
+            <h3>同话题跨平台交叉讨论</h3>
+            <p>短视频、图文与评论区形成三层讨论结构。不同平台的侧重点差异明显，整理时按平台归类，避免把局部观点当成整体共识。</p>
+          </div>
+          <span class="views">热度上升</span>
+        </article>
+        <article class="item" data-cat="回顾" data-title="旧内容二次发酵">
+          <span class="idx">04</span>
+          <div>
+            <h3>旧内容二次发酵</h3>
+            <p>数周前发布的视频因新线索被重新提起。条目补充了初次传播时的公开信息，并标注后续新增内容的出现时间。</p>
+          </div>
+          <span class="views">持续关注</span>
+        </article>
+        <article class="item" data-cat="回顾" data-title="时间线梳理与背景补充">
+          <span class="idx">05</span>
+          <div>
+            <h3>时间线梳理与背景补充</h3>
+            <p>把零散节点整理成可读的时间顺序，标出信息首次出现的平台与大致时段，帮助判断哪些内容是后续追加、哪些属于早期素材。</p>
+          </div>
+          <span class="views">稳定</span>
+        </article>
+        <article class="item" data-cat="争议" data-title="评论区观点分歧记录">
+          <span class="idx">06</span>
+          <div>
+            <h3>评论区观点分歧记录</h3>
+            <p>争论主要集中在对动机的推测上，缺乏可验证材料。条目只记录分歧的存在与主要方向，不放大未经证实的细节。</p>
+          </div>
+          <span class="views">讨论活跃</span>
+        </article>
+      </div>
+
+      <div class="empty" id="emptyState">没有匹配的条目，试试其它关键词或切换类别。</div>
+    </div>
+  </section>
+
+  <!-- HOW TO -->
+  <section id="howto">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">浏览方式</div>
+        <h2>怎样用更短的时间看清当天热点</h2>
+        <p>51视频每日大赛的内容以条目为单位组织。先看摘要，再选条目，最后对照多方说法，是效率较高的一条路径。</p>
+      </div>
+      <div class="explain">
+        <div class="article">
+          <h3>三步阅读顺序</h3>
+          <ul>
+            <li><strong>第一步，读摘要。</strong>确认当天的主要事件数量与大致方向，不必逐条展开。</li>
+            <li><strong>第二步，挑条目。</strong>依据热度与自身关注点筛选，优先看信息密度大的内容。</li>
+            <li><strong>第三步，对说法。</strong>同一事件存在多种表述时，先看来源与时间，再判断可信程度。</li>
+          </ul>
+          <p>这个顺序不保证结论，但能减少在重复内容上花费的时间。遇到无法确认的细节，建议保留原表述，不急于下判断。</p>
+        </div>
+        <div class="article">
+          <h3>热度与可信度要分开看</h3>
+          <p>热度高只说明讨论多，讨论多不等于事实清楚。51视频每日大赛在条目中分别标注传播情况与信息状态，两者不混在一起呈现。</p>
+          <p>对于只有单一来源的内容，页面会明确写出“尚未见其他来源”。对于多方说法不一致的条目，保留各组表述的原始口径，不做合并或改写。</p>
+          <p>如果你更关心某个具体方向，可以用榜单上方的搜索框输入关键词，结果会实时过滤，无需跳转页面。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="dl">
+        <div>
+          <h2>把每日看点带到手边</h2>
+          <p>下载入口用于获取每日看点的离线版本，方便在没有网络时回顾当天条目与背景摘要。文件内容与页面当日发布的信息保持一致，后续更新以页面为准。</p>
+        </div>
+        <div>
+          <a class="btn-dl" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            下载
+          </a>
+          <div class="dl-note">下载入口开放后将在此处提供</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">常见问题</div>
+        <h2>关于内容与更新的几个说明</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>51视频每日大赛的内容多久更新一次？</summary>
+          <p>页面按日组织看点，每个自然日更新一轮条目。突发讨论较多时，会补充新的条目并调整排序，旧条目保留原有表述，不覆盖历史记录。</p>
+        </details>
+        <details>
+          <summary>榜单顺序是否代表内容真实性？</summary>
+          <p>不代表。排序依据是公开讨论的活跃程度，与事实是否成立无关。判断信息时请结合作者标注的来源与时间，以及是否存在多方独立说法。</p>
+        </details>
+        <details>
+          <summary>为什么有些条目只有简要说明？</summary>
+          <p>当公开信息有限时，条目只保留可核对的部分，并注明尚未确认的环节。这样做的目的是避免把推测写成结论，而不是省略重要内容。</p>
+        </details>
+        <details>
+          <summary>可以按类别只看某一类内容吗？</summary>
+          <p>可以。榜单上方的类别按钮支持在全部、热点、争议、回顾之间切换，并可与关键词搜索叠加使用，筛选结果会实时显示在条目区域。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <span class="mark" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M8 5l11 7-11 7V5z" fill="#f97316"/></svg>
+          </span>
+          <span>51视频每日大赛</span>
+        </div>
+        <p>每天整理讨论度较高的视频热点，按条目呈现事件摘要、背景线索与不同说法。51视频每日大赛关注的是信息如何被传播，以及哪些细节仍待确认。</p>
+      </div>
+      <div class="foot-col">
+        <h4>页面导航</h4>
+        <a href="#today">今日看点</a>
+        <a href="#ranking">热度榜单</a>
+        <a href="#howto">浏览方式</a>
+        <a href="#faq">常见问题</a>
+      </div>
+      <div class="foot-col">
+        <h4>内容说明</h4>
+        <a href="#ranking">条目来源标注</a>
+        <a href="#howto">热度与可信度</a>
+        <a href="#faq">更新频率说明</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>51视频每日大赛 · 内容仅供信息浏览与对照参考</span>
+      <span>页面信息以当日发布为准</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips = document.querySelectorAll('.chip');
+  var items = document.querySelectorAll('#rankList .item');
+  var input = document.getElementById('searchInput');
+  var note = document.getElementById('resultNote');
+  var empty = document.getElementById('emptyState');
+  var activeCat = 'all';
+
+  function apply(){
+    var q = (input.value || '').trim().toLowerCase();
+    var shown = 0;
+    items.forEach(function(el){
+      var cat = el.getAttribute('data-cat');
+      var title = (el.getAttribute('data-title') || '').toLowerCase();
+      var text = el.textContent.toLowerCase();
+      var catOk = (activeCat === 'all' || cat === activeCat);
+      var qOk = (!q || title.indexOf(q) > -1 || text.indexOf(q) > -1);
+      var ok = catOk && qOk;
+      el.style.display = ok ? '' : 'none';
+      if(ok) shown++;
+    });
+    empty.style.display = shown === 0 ? 'block' : 'none';
+    note.textContent = (activeCat === 'all' ? '全部类别' : '类别：' + activeCat) +
+      (q ? ' · 关键词：' + input.value.trim() : '') +
+      ' · 共 ' + shown + ' 条';
+  }
+
+  chips.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      chips.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeCat = btn.getAttribute('data-cat');
+      apply();
+    });
+  });
+
+  input.addEventListener('input', apply);
+  apply();
+})();
+</script>
+
+</body>
+            </html>
