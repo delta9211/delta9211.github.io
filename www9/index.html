@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>www.91.com制片厂-制片厂影视作品_影视制作与片单推荐</title>
+<meta name="description" content="www.91.com制片厂是影视内容制作与作品展示的站点首页，汇集自制影片片单、制作流程说明与观看入口，方便访客了解制片厂作品与制作能力。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314121c'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23e8b04b' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23e8b04b'/%3E%3Ccircle cx='32' cy='15' r='4' fill='%23e8b04b'/%3E%3Ccircle cx='32' cy='49' r='4' fill='%23e8b04b'/%3E%3Ccircle cx='15' cy='32' r='4' fill='%23e8b04b'/%3E%3Ccircle cx='49' cy='32' r='4' fill='%23e8b04b'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#15131d;
+  --ink-2:#232030;
+  --paper:#f6f3ec;
+  --gold:#e8b04b;
+  --gold-deep:#c78d2b;
+  --red:#b23a3a;
+  --muted:#6c6779;
+  --line:rgba(21,19,29,.12);
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{width:min(1120px,92vw);margin:0 auto}
+
+/* Header */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:rgba(21,19,29,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(232,176,75,.22);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:18px;padding:12px 0;
+}
+.brand{display:flex;align-items:center;gap:11px;min-width:0}
+.brand .mark{flex:0 0 auto;width:38px;height:38px}
+.brand .name{
+  color:var(--paper);
+  font-size:clamp(15px,2.4vw,19px);
+  font-weight:700;letter-spacing:.3px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+nav.links{display:flex;gap:20px;flex-wrap:wrap}
+nav.links a{
+  color:rgba(246,243,236,.78);
+  font-size:14px;padding:4px 0;border-bottom:2px solid transparent;
+  transition:.2s;
+}
+nav.links a:hover,nav.links a:focus{color:var(--gold);border-bottom-color:var(--gold)}
+.nav-cta{
+  flex:0 0 auto;
+  background:var(--gold);color:var(--ink);
+  font-size:13.5px;font-weight:700;
+  padding:8px 16px;border-radius:999px;
+  transition:.2s;
+}
+.nav-cta:hover{background:var(--paper)}
+
+/* Hero */
+.hero{
+  background:
+    radial-gradient(900px 420px at 82% -10%,rgba(232,176,75,.20),transparent 62%),
+    radial-gradient(600px 320px at 5% 110%,rgba(178,58,58,.22),transparent 65%),
+    var(--ink);
+  color:var(--paper);
+  padding:clamp(40px,7vw,76px) 0 clamp(44px,7vw,80px);
+  position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;inset:auto 0 0 0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(232,176,75,.55),transparent);
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.35fr .85fr;
+  gap:clamp(28px,4vw,54px);align-items:center;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;letter-spacing:2px;
+  color:var(--gold);text-transform:uppercase;
+  border:1px solid rgba(232,176,75,.45);
+  padding:5px 12px;border-radius:999px;margin-bottom:20px;
+}
+h1{
+  font-size:clamp(27px,4.6vw,46px);
+  line-height:1.28;font-weight:800;letter-spacing:.5px;
+  word-break:break-word;
+}
+h1 .accent{color:var(--gold)}
+.hero p.lead{
+  margin-top:18px;max-width:44em;
+  font-size:clamp(14.5px,1.6vw,16.5px);
+  color:rgba(246,243,236,.80);
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;border-radius:999px;
+  font-size:14.5px;font-weight:700;transition:.2s;
+}
+.btn-primary{background:var(--gold);color:var(--ink)}
+.btn-primary:hover{background:var(--paper)}
+.btn-ghost{
+  border:1px solid rgba(246,243,236,.35);
+  color:var(--paper);
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{
+  display:flex;gap:26px;flex-wrap:wrap;margin-top:34px;
+  padding-top:22px;border-top:1px solid rgba(246,243,236,.14);
+}
+.hero-stats div strong{
+  display:block;font-size:clamp(19px,2.6vw,24px);color:var(--gold);
+}
+.hero-stats div span{font-size:12.5px;color:rgba(246,243,236,.62)}
+
+/* Reel illustration */
+.reel-card{
+  border:1px solid rgba(232,176,75,.30);
+  border-radius:var(--radius);
+  background:rgba(246,243,236,.04);
+  padding:18px;
+}
+.reel-card .cap{
+  font-size:12px;letter-spacing:1.5px;color:rgba(246,243,236,.55);
+  margin-top:12px;text-align:center;
+}
+
+/* Section base */
+section{padding:clamp(42px,6vw,68px) 0}
+.sec-head{max-width:52em;margin-bottom:clamp(24px,3.6vw,38px)}
+.sec-kicker{
+  font-size:12.5px;letter-spacing:2px;color:var(--gold-deep);
+  font-weight:700;margin-bottom:10px;
+}
+h2{
+  font-size:clamp(21px,3.1vw,30px);line-height:1.35;font-weight:800;
+}
+.sec-head p{margin-top:12px;color:var(--muted);font-size:15px}
+
+/* Works grid */
+.works{background:#fffdf8;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.filters{
+  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px;
+}
+.chip{
+  border:1px solid var(--line);background:transparent;
+  color:var(--ink-2);font-size:13.5px;
+  padding:7px 16px;border-radius:999px;cursor:pointer;
+  transition:.18s;font-family:inherit;
+}
+.chip:hover{border-color:var(--gold-deep);color:var(--gold-deep)}
+.chip[aria-pressed="true"]{
+  background:var(--ink);color:var(--paper);border-color:var(--ink);
+}
+.card-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));
+  gap:20px;
+}
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:.22s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(21,19,29,.10);border-color:rgba(232,176,75,.6)}
+.card .thumb{position:relative;background:var(--ink-2)}
+.card .thumb svg{width:100%;height:auto}
+.card .tag{
+  position:absolute;left:12px;top:12px;
+  font-size:11.5px;letter-spacing:1px;
+  background:rgba(21,19,29,.78);color:var(--gold);
+  padding:3px 10px;border-radius:999px;
+}
+.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:16.5px;font-weight:700;line-height:1.4}
+.card p{font-size:13.5px;color:var(--muted);line-height:1.7;flex:1}
+.card .meta{
+  font-size:12px;color:var(--gold-deep);letter-spacing:.5px;
+  border-top:1px dashed var(--line);padding-top:10px;
+}
+.empty-note{
+  display:none;font-size:14px;color:var(--muted);
+  padding:26px;border:1px dashed var(--line);border-radius:var(--radius);
+  text-align:center;
+}
+.empty-note.show{display:block}
+
+/* Process */
+.process-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+}
+.step{
+  background:#fffdf8;border:1px solid var(--line);
+  border-radius:var(--radius);padding:22px 20px;
+  position:relative;
+}
+.step .num{
+  font-size:12px;font-weight:800;letter-spacing:1.5px;
+  color:var(--gold-deep);margin-bottom:10px;
+}
+.step h3{font-size:16px;margin-bottom:8px}
+.step p{font-size:13.5px;color:var(--muted)}
+
+/* About / notes */
+.about{background:var(--ink);color:var(--paper)}
+.about .sec-kicker{color:var(--gold)}
+.about h2{color:var(--paper)}
+.about-grid{
+  display:grid;grid-template-columns:1.15fr .85fr;
+  gap:clamp(26px,4vw,50px);align-items:start;
+}
+.about p{color:rgba(246,243,236,.80);font-size:15px;margin-bottom:14px}
+.fact-list{list-style:none;border-top:1px solid rgba(246,243,236,.16)}
+.fact-list li{
+  display:flex;justify-content:space-between;gap:16px;
+  padding:13px 0;border-bottom:1px solid rgba(246,243,236,.16);
+  font-size:14px;
+}
+.fact-list li span:first-child{color:rgba(246,243,236,.60)}
+.fact-list li span:last-child{color:var(--gold);font-weight:700;text-align:right}
+
+/* FAQ */
+.faq-item{
+  border-bottom:1px solid var(--line);
+}
+.faq-item summary{
+  cursor:pointer;list-style:none;
+  padding:17px 0;font-size:15.5px;font-weight:700;
+  display:flex;justify-content:space-between;gap:16px;align-items:center;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{
+  content:"+";color:var(--gold-deep);font-size:20px;font-weight:400;flex:0 0 auto;
+}
+.faq-item[open] summary::after{content:"–"}
+.faq-item p{padding:0 0 18px;font-size:14.5px;color:var(--muted);max-width:60em}
+
+/* Footer */
+footer.site{
+  background:var(--ink-2);color:rgba(246,243,236,.70);
+  padding:clamp(34px,5vw,52px) 0 26px;font-size:13.5px;
+}
+.foot-grid{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr;
+  gap:clamp(24px,4vw,48px);
+}
+.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.foot-brand .mark{width:30px;height:30px;flex:0 0 auto}
+.foot-brand strong{color:var(--paper);font-size:16px}
+footer.site h4{
+  color:var(--paper);font-size:13px;letter-spacing:1.5px;
+  margin-bottom:12px;font-weight:700;
+}
+footer.site ul{list-style:none}
+footer.site li{margin-bottom:8px}
+footer.site a:hover{color:var(--gold)}
+.copyright{
+  margin-top:32px;padding-top:18px;
+  border-top:1px solid rgba(246,243,236,.14);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:12.5px;color:rgba(246,243,236,.50);
+}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .reel-card{order:2;max-width:420px}
+  .about-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .nav-inner{flex-wrap:wrap;gap:10px}
+  nav.links{order:3;width:100%;gap:16px;padding-bottom:4px}
+  nav.links a{font-size:13.5px}
+  .process-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .hero-stats{gap:20px}
+  .card-grid{grid-template-columns:1fr}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="www.91.com制片厂 首页">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#14121c"/>
+        <circle cx="32" cy="32" r="17" fill="none" stroke="#e8b04b" stroke-width="3"/>
+        <circle cx="32" cy="32" r="5" fill="#e8b04b"/>
+        <circle cx="32" cy="15" r="4" fill="#e8b04b"/>
+        <circle cx="32" cy="49" r="4" fill="#e8b04b"/>
+        <circle cx="15" cy="32" r="4" fill="#e8b04b"/>
+        <circle cx="49" cy="32" r="4" fill="#e8b04b"/>
+      </svg>
+      <span class="name">www.91.com制片厂</span>
+    </a>
+    <nav class="links" aria-label="主导航">
+      <a href="#works">作品片单</a>
+      <a href="#process">制作流程</a>
+      <a href="#about">关于制片厂</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="nav-cta" href="#works">浏览片单</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">影视内容制作 · 作品展示</span>
+        <h1>www.91.com制片厂</h1>
+        <p class="lead">www.91.com制片厂是一个以影视内容制作与作品展示为核心的站点首页。这里按题材归集自制影片片单，说明从策划、拍摄到后期成片的制作环节，并提供清晰的观看入口，便于访客快速找到想看的内容。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#works">进入作品片单</a>
+          <a class="btn btn-ghost" href="#process">了解制作流程</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>4 类</strong><span>题材分区</span></div>
+          <div><strong>4 步</strong><span>成片流程</span></div>
+          <div><strong>1 站</strong><span>集中观看入口</span></div>
+        </div>
+      </div>
+      <div class="reel-card">
+        <svg viewBox="0 0 320 260" role="img" aria-label="胶片盘与放映机概念插画">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#e8b04b"/>
+              <stop offset="1" stop-color="#b23a3a"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="320" height="260" rx="10" fill="#191621"/>
+          <circle cx="108" cy="130" r="72" fill="none" stroke="url(#g1)" stroke-width="4"/>
+          <circle cx="108" cy="130" r="14" fill="#e8b04b"/>
+          <circle cx="108" cy="70" r="9" fill="#f6f3ec" opacity=".9"/>
+          <circle cx="108" cy="190" r="9" fill="#f6f3ec" opacity=".9"/>
+          <circle cx="48" cy="130" r="9" fill="#f6f3ec" opacity=".9"/>
+          <circle cx="168" cy="130" r="9" fill="#f6f3ec" opacity=".9"/>
+          <circle cx="66" cy="88" r="9" fill="#f6f3ec" opacity=".55"/>
+          <circle cx="150" cy="88" r="9" fill="#f6f3ec" opacity=".55"/>
+          <circle cx="66" cy="172" r="9" fill="#f6f3ec" opacity=".55"/>
+          <circle cx="150" cy="172" r="9" fill="#f6f3ec" opacity=".55"/>
+          <path d="M186 96 L262 66 L262 194 L186 164 Z" fill="none" stroke="#e8b04b" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M196 108 L250 86 L250 174 L196 152 Z" fill="#e8b04b" opacity=".16"/>
+          <line x1="60" y1="228" x2="260" y2="228" stroke="#f6f3ec" stroke-width="1.5" opacity=".28"/>
+          <circle cx="60" cy="228" r="3.5" fill="#e8b04b"/>
+          <circle cx="160" cy="228" r="3.5" fill="#f6f3ec" opacity=".5"/>
+          <circle cx="260" cy="228" r="3.5" fill="#f6f3ec" opacity=".5"/>
+        </svg>
+        <p class="cap">画面、节奏与叙事，是制片厂关注的三件事</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Works -->
+  <section id="works" class="works">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-kicker">作品片单</p>
+        <h2>按题材浏览 www.91.com制片厂 的自制影片</h2>
+        <p>片单按题材分成剧情、纪录、短片、实验四类，每部作品标注时长与成片年份，点击分类可即时筛选，筛选过程不跳转页面。</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="作品分类筛选">
+        <button class="chip" data-filter="all" aria-pressed="true">全部</button>
+        <button class="chip" data-filter="剧情" aria-pressed="false">剧情</button>
+        <button class="chip" data-filter="纪录" aria-pressed="false">纪录</button>
+        <button class="chip" data-filter="短片" aria-pressed="false">短片</button>
+        <button class="chip" data-filter="实验" aria-pressed="false">实验</button>
+      </div>
+
+      <div class="card-grid" id="cardGrid">
+        <article class="card" data-cat="剧情">
+          <div class="thumb">
+            <span class="tag">剧情</span>
+            <svg viewBox="0 0 400 210" role="img" aria-label="剧情片画面示意">
+              <rect width="400" height="210" fill="#232030"/>
+              <circle cx="300" cy="60" r="46" fill="#e8b04b" opacity=".22"/>
+              <path d="M0 168 L120 118 L220 158 L330 108 L400 140 L400 210 L0 210 Z" fill="#b23a3a" opacity=".55"/>
+              <path d="M0 190 L90 162 L200 192 L300 156 L400 182 L400 210 L0 210 Z" fill="#14121c" opacity=".85"/>
+              <rect x="150" y="70" width="100" height="66" rx="6" fill="none" stroke="#e8b04b" stroke-width="2.5" opacity=".65"/>
+            </svg>
+          </div>
+          <div class="body">
+            <h3>《长街尽头》</h3>
+            <p>以一条老街的十年变迁为线索，讲述两代人的选择与告别，全片在实景中完成拍摄。</p>
+            <span class="meta">剧情 · 86 分钟 · 成片年份 2023</span>
+          </div>
+        </article>
+
+        <article class="card" data-cat="纪录">
+          <div class="thumb">
+            <span class="tag">纪录</span>
+            <svg viewBox="0 0 400 210" role="img" aria-label="纪录片画面示意">
+              <rect width="400" height="210" fill="#1c2a28"/>
+              <path d="M0 150 L80 96 L160 138 L240 84 L320 132 L400 100 L400 210 L0 210 Z" fill="#3c6b5c" opacity=".65"/>
+              <circle cx="320" cy="52" r="24" fill="#e8b04b" opacity=".55"/>
+              <path d="M40 60 L110 60 L110 118 L40 118 Z" fill="none" stroke="#f6f3ec" stroke-width="2" opacity=".45"/>
+              <line x1="40" y1="132" x2="160" y2="132" stroke="#f6f3ec" stroke-width="2" opacity=".25"/>
+            </svg>
+          </div>
+          <div class="body">
+            <h3>《手艺人》</h3>
+            <p>跟拍三位民间手艺人一年四季的工作日常，记录手艺传承中真实的时间成本。</p>
+            <span class="meta">纪录 · 62 分钟 · 成片年份 2024</span>
+          </div>
+        </article>
+
+        <article class="card" data-cat="短片">
+          <div class="thumb">
+            <span class="tag">短片</span>
+            <svg viewBox="0 0 400 210" role="img" aria-label="短片画面示意">
+              <rect width="400" height="210" fill="#2a1f22"/>
+              <circle cx="200" cy="104" r="62" fill="none" stroke="#e8b04b" stroke-width="3" opacity=".8"/>
+              <circle cx="200" cy="104" r="20" fill="#e8b04b" opacity=".45"/>
+              <path d="M0 176 L140 150 L260 178 L400 148 L400 210 L0 210 Z" fill="#b23a3a" opacity=".45"/>
+            </svg>
+          </div>
+          <div class="body">
+            <h3>《午夜来电》</h3>
+            <p>单场景短片，一通打错的电话把两个陌生人拉进同一个夜晚，全部场景发生在室内。</p>
+            <span class="meta">短片 · 24 分钟 · 成片年份 2024</span>
+          </div>
+        </article>
+
+        <article class="card" data-cat="实验">
+          <div class="thumb">
+            <span class="tag">实验</span>
+            <svg viewBox="0 0 400 210" role="img" aria-label="实验影像画面示意">
+              <rect width="400" height="210" fill="#161a26"/>
+              <g stroke="#e8b04b" stroke-width="2" opacity=".7">
+                <line x1="40" y1="40" x2="360" y2="170"/>
+                <line x1="40" y1="80" x2="360" y2="210"/>
+                <line x1="40" y1="0" x2="360" y2="130"/>
+              </g>
+              <rect x="160" y="70" width="80" height="70" fill="none" stroke="#f6f3ec" stroke-width="2" opacity=".5"/>
+              <circle cx="200" cy="105" r="10" fill="#e8b04b"/>
+            </svg>
+          </div>
+          <div class="body">
+            <h3>《光栅》</h3>
+            <p>以光影与几何图形为叙事主体的实验影像，用固定机位与长镜头观察城市光线的移动。</p>
+            <span class="meta">实验 · 12 分钟 · 成片年份 2025</span>
+          </div>
+        </article>
+      </div>
+
+      <p class="empty-note" id="emptyNote">该分类暂时没有可展示的作品，请选择其他题材。</p>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-kicker">制作流程</p>
+        <h2>一部作品如何从选题走到成片</h2>
+        <p>www.91.com制片厂的项目按固定四步推进，每一步都有明确的交付物，便于团队与外部合作方对齐进度。</p>
+      </div>
+      <div class="process-grid">
+        <div class="step">
+          <p class="num">STEP 01</p>
+          <h3>选题策划</h3>
+          <p>确定题材与叙事方向，形成一页纸的梗概与人物设定，明确作品时长与拍摄条件。</p>
+        </div>
+        <div class="step">
+          <p class="num">STEP 02</p>
+          <h3>拍摄执行</h3>
+          <p>按分镜组织实景拍摄，控制机位、光线与节奏，现场记录素材编号，减少后期返工。</p>
+        </div>
+        <div class="step">
+          <p class="num">STEP 03</p>
+          <h3>后期制作</h3>
+          <p>完成剪辑、调色与声音处理，成片统一输出标准画幅，并保留可分发的多版本文件。</p>
+        </div>
+        <div class="step">
+          <p class="num">STEP 04</p>
+          <h3>发布归档</h3>
+          <p>作品进入片单展示，标注题材、时长与年份，同时归档素材与工程文件，便于后续复用。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-kicker">关于制片厂</p>
+        <h2>www.91.com制片厂 在做怎样的事</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>www.91.com制片厂把重心放在中小体量的影视内容上：剧情片讲人的处境，纪录片讲真实的时间，短片与实验影像则负责试新的表达方式。四类作品共用同一套制作流程，但在剧本深度、拍摄周期和后期投入上各有侧重。</p>
+          <p>作为一个作品展示型站点，本站不做资源聚合，只呈现制片厂自己的片单与制作说明。访客可以在片单页按题材筛选，也可以从制作流程了解一部片子从立项到归档经历了哪些环节。需要保存片单的访客，可先通过页面上的下载入口获取文件。</p>
+          <p>页面中的作品信息以成片时登记的题材、时长与年份为准；片单会随新片完成而更新，已归档作品的标注保持不变。若你对某部作品的拍摄方式感兴趣，可先看该作品卡片上的简述，再结合制作流程对照理解。</p>
+        </div>
+        <div>
+          <ul class="fact-list">
+            <li><span>作品题材</span><span>剧情 / 纪录 / 短片 / 实验</span></li>
+            <li><span>制作流程</span><span>策划 → 拍摄 → 后期 → 归档</span></li>
+            <li><span>片单信息</span><span>题材 · 时长 · 年份</span></li>
+            <li><span>片单更新</span><span>随新片完成同步</span></li>
+            <li><span>片单下载</span><span>下载</span></li>
+          </ul>
+          <p style="margin-top:18px">
+            <a class="btn btn-primary" href="#" download data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none">下载片单</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-kicker">常见问题</p>
+        <h2>访客最常问的几件事</h2>
+      </div>
+      <details class="faq-item" open>
+        <summary>www.91.com制片厂 的作品在哪里看？</summary>
+        <p>作品在站内片单区集中展示，每张卡片标注题材、时长与成片年份。先按题材筛选，再点开对应作品查看简介，即可了解该片的基本情况。</p>
+      </details>
+      <details class="faq-item">
+        <summary>片单多久更新一次？</summary>
+        <p>片单跟随实际成片进度更新：一部作品完成后期并归档后，才会以新卡片形式加入对应题材。已发布作品的题材、时长与年份标注保持稳定，不随页面改版变动。</p>
+      </details>
+      <details class="faq-item">
+        <summary>如何区分剧情片与实验影像？</summary>
+        <p>剧情片以人物与情节推进为主线，有完整的故事结构；实验影像不以讲故事为目标，更多通过光影、构图与镜头时长来组织观看体验。短片则是一个时长维度，剧情与实验都可以是短片。</p>
+      </details>
+      <details class="faq-item">
+        <summary>能否下载片单文件？</summary>
+        <p>页面提供片单下载入口，按钮已标注为“下载”。文件地址尚在准备中，按钮当前不可点击，待地址确认后即可正常获取。</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#e8b04b"/>
+            <circle cx="32" cy="32" r="17" fill="none" stroke="#14121c" stroke-width="3"/>
+            <circle cx="32" cy="32" r="5" fill="#14121c"/>
+            <circle cx="32" cy="15" r="4" fill="#14121c"/>
+            <circle cx="32" cy="49" r="4" fill="#14121c"/>
+            <circle cx="15" cy="32" r="4" fill="#14121c"/>
+            <circle cx="49" cy="32" r="4" fill="#14121c"/>
+          </svg>
+          <strong>www.91.com制片厂</strong>
+        </div>
+        <p>影视内容制作与作品展示。片单、流程与观看入口集中在本页，方便访客按题材找到想看的内容。</p>
+      </div>
+      <div>
+        <h4>页面导航</h4>
+        <ul>
+          <li><a href="#works">作品片单</a></li>
+          <li><a href="#process">制作流程</a></li>
+          <li><a href="#about">关于制片厂</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>作品题材</h4>
+        <ul>
+          <li><a href="#works">剧情片</a></li>
+          <li><a href="#works">纪录片</a></li>
+          <li><a href="#works">短片</a></li>
+          <li><a href="#works">实验影像</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>www.91.com制片厂 · 作品信息以成片登记为准</span>
+      <span>本页为站点首页</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips = document.querySelectorAll('.chip');
+  var cards = document.querySelectorAll('#cardGrid .card');
+  var empty = document.getElementById('emptyNote');
+
+  chips.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var f = btn.getAttribute('data-filter');
+      chips.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      var shown = 0;
+      cards.forEach(function(card){
+        var ok = (f === 'all') || (card.getAttribute('data-cat') === f);
+        card.style.display = ok ? '' : 'none';
+        if(ok) shown++;
+      });
+      empty.classList.toggle('show', shown === 0);
+    });
+  });
+})();
+</script>
+</body>
+              </html>
