@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>茄子抖音短视频-茄子短视频内容精选_茄子短剧与热门视频合集</title>
+<meta name="description" content="茄子抖音短视频聚合站，按主题整理茄子系列短视频、短剧与热门片段，提供清晰的内容导航、分类浏览与观看入口，帮助你快速找到想看的茄子抖音短视频内容。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2313151c'/%3E%3Cpath d='M32 12c7 6 9 11 9 16 0 4-2 7-4 9 1-5-1-9-5-12 1 6-1 10-4 13-2-3-3-6-1-11-4 3-6 7-5 12-3-3-5-6-5-11 0-6 5-12 15-16z' fill='%237ee787'/%3E%3Cpath d='M32 20c-2 6-1 9 1 12 2-2 3-5 2-9 3 2 4 5 4 8 0 4-3 7-7 7s-7-3-7-7c0-4 3-8 7-11z' fill='%23d4ff8a'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#15161b;
+    --ink-soft:#2a2c34;
+    --paper:#f6f4ee;
+    --card:#ffffff;
+    --eggplant:#5b3a86;
+    --eggplant-deep:#3d2660;
+    --leaf:#7ee787;
+    --leaf-deep:#3f9e58;
+    --gold:#f0b429;
+    --line:#e2ddd2;
+    --muted:#6b6a68;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  .wrap{width:min(1120px,92vw);margin:0 auto}
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,244,238,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex;align-items:center;gap:24px;
+    padding:12px 0;flex-wrap:wrap;
+  }
+  .logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+  .logo-mark{
+    width:38px;height:38px;border-radius:11px;
+    background:linear-gradient(150deg,var(--eggplant),var(--eggplant-deep));
+    display:grid;place-items:center;
+  }
+  .logo-mark svg{width:22px;height:22px}
+  .logo-text{
+    font-weight:800;font-size:17px;letter-spacing:.2px;
+    color:var(--eggplant-deep);white-space:nowrap;
+  }
+  nav.main{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  nav.main a{
+    font-size:14.5px;padding:7px 12px;border-radius:999px;
+    color:var(--ink-soft);font-weight:500;
+    transition:background .18s,color .18s;
+  }
+  nav.main a:hover{background:#ece7db;color:var(--eggplant-deep)}
+  .nav-cta{
+    font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;
+    background:var(--eggplant);color:#fff;white-space:nowrap;
+    transition:background .18s;
+  }
+  .nav-cta:hover{background:var(--eggplant-deep)}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background:linear-gradient(165deg,#1b1626 0%,#2a1e3d 55%,#221a30 100%);
+    color:#f4f1ea;
+    padding:60px 0 56px;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:auto -80px -140px auto;
+    width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(126,231,135,.16),transparent 68%);
+    pointer-events:none;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;position:relative;z-index:2}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12.5px;letter-spacing:1.5px;font-weight:600;
+    color:var(--leaf);text-transform:uppercase;
+    background:rgba(126,231,135,.1);
+    border:1px solid rgba(126,231,135,.28);
+    padding:5px 12px;border-radius:999px;margin-bottom:18px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--leaf)}
+  h1{
+    font-size:clamp(28px,4.2vw,46px);
+    line-height:1.22;font-weight:800;letter-spacing:-.5px;
+    color:#fff;
+  }
+  .hero-sub{
+    margin-top:16px;font-size:15.5px;color:#c9c2d6;max-width:46ch;
+  }
+  .hero-actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:14.5px;font-weight:700;padding:12px 22px;border-radius:999px;
+    border:1px solid transparent;cursor:pointer;transition:.18s;
+  }
+  .btn-primary{background:var(--leaf);color:#12220f}
+  .btn-primary:hover{background:#9bf0a2}
+  .btn-ghost{background:transparent;color:#efeaf5;border-color:rgba(255,255,255,.28)}
+  .btn-ghost:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.06)}
+  .hero-stats{display:flex;gap:26px;margin-top:34px;flex-wrap:wrap}
+  .stat b{display:block;font-size:22px;color:#fff;font-weight:800;line-height:1.2}
+  .stat span{font-size:12.5px;color:#a79fb8}
+
+  .hero-art{
+    border-radius:22px;padding:18px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 24px 60px -20px rgba(0,0,0,.6);
+  }
+  .phone{
+    border-radius:18px;overflow:hidden;
+    background:linear-gradient(160deg,#4b2f72,#2b1c42);
+    padding:14px;position:relative;
+  }
+  .phone-top{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+  .phone-top i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);display:block}
+  .phone-screen{
+    background:linear-gradient(150deg,#7a4fa8,#3a2558);
+    border-radius:12px;min-height:172px;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;overflow:hidden;
+  }
+  .phone-screen svg{width:74px;height:74px;opacity:.95}
+  .play-badge{
+    position:absolute;bottom:10px;left:10px;right:10px;
+    display:flex;align-items:center;justify-content:space-between;
+    font-size:11.5px;color:#e7e0f2;
+  }
+  .play-badge em{font-style:normal;background:rgba(0,0,0,.35);padding:3px 9px;border-radius:999px}
+  .hero-art figcaption{
+    font-size:12.5px;color:#a79fb8;margin-top:12px;text-align:center;
+  }
+
+  /* ---------- section shell ---------- */
+  section{padding:56px 0}
+  .sec-head{max-width:62ch;margin-bottom:30px}
+  .sec-kicker{
+    font-size:12.5px;letter-spacing:1.6px;font-weight:700;
+    color:var(--leaf-deep);text-transform:uppercase;margin-bottom:8px;
+  }
+  h2{
+    font-size:clamp(21px,2.6vw,28px);font-weight:800;
+    letter-spacing:-.3px;line-height:1.3;color:var(--eggplant-deep);
+  }
+  .sec-desc{margin-top:10px;color:var(--muted);font-size:15px}
+
+  /* ---------- topic cards ---------- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:22px;
+    display:flex;flex-direction:column;gap:10px;
+    transition:transform .2s,box-shadow .2s,border-color .2s;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 16px 34px -20px rgba(61,38,96,.5);border-color:#d3c8e6}
+  .card-icon{
+    width:42px;height:42px;border-radius:11px;display:grid;place-items:center;
+    background:#f0ecf8;
+  }
+  .card-icon svg{width:22px;height:22px}
+  .card h3{font-size:16.5px;font-weight:700;color:var(--ink)}
+  .card p{font-size:14px;color:var(--muted);line-height:1.7}
+  .tag-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+  .tag{
+    font-size:11.5px;padding:3px 9px;border-radius:999px;
+    background:#f2efe6;color:#6b6274;border:1px solid #e6e0d4;
+  }
+
+  /* ---------- list / filter ---------- */
+  .filters{
+    display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;
+    align-items:center;
+  }
+  .chip{
+    font-family:inherit;font-size:13.5px;font-weight:600;
+    padding:8px 16px;border-radius:999px;cursor:pointer;
+    border:1px solid var(--line);background:#fff;color:var(--ink-soft);
+    transition:.16s;
+  }
+  .chip:hover{border-color:#c9bde0;color:var(--eggplant)}
+  .chip[aria-pressed="true"]{background:var(--eggplant);border-color:var(--eggplant);color:#fff}
+  .search-box{
+    margin-left:auto;display:flex;align-items:center;gap:6px;
+    background:#fff;border:1px solid var(--line);border-radius:999px;
+    padding:6px 8px 6px 14px;
+  }
+  .search-box input{
+    border:none;outline:none;background:transparent;font-family:inherit;
+    font-size:14px;width:170px;color:var(--ink);
+  }
+  .search-box button{
+    font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;
+    border:none;background:var(--leaf);color:#12220f;
+    padding:6px 14px;border-radius:999px;
+  }
+  .search-box button:hover{background:#9bf0a2}
+
+  .ep-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .ep{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:16px 18px;display:flex;gap:14px;align-items:flex-start;
+    transition:border-color .18s,box-shadow .18s;
+  }
+  .ep:hover{border-color:#c9bde0;box-shadow:0 12px 26px -22px rgba(61,38,96,.6)}
+  .ep-idx{
+    flex-shrink:0;width:40px;height:40px;border-radius:10px;
+    display:grid;place-items:center;font-weight:800;font-size:13px;
+    background:linear-gradient(145deg,#f0ecf8,#e4dbf5);color:var(--eggplant);
+  }
+  .ep-body h3{font-size:15px;font-weight:700;line-height:1.45;margin-bottom:4px}
+  .ep-body p{font-size:13px;color:var(--muted);line-height:1.65}
+  .ep-meta{display:flex;gap:10px;margin-top:8px;font-size:11.5px;color:#918a80;flex-wrap:wrap}
+  .ep-meta span{display:inline-flex;align-items:center;gap:4px}
+  .empty{
+    grid-column:1/-1;text-align:center;padding:34px 12px;
+    color:var(--muted);font-size:14px;background:#fff;border:1px dashed var(--line);border-radius:14px;
+  }
+
+  /* ---------- about / reading ---------- */
+  .about-band{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+  .about-body p{font-size:14.8px;color:#40414a;margin-bottom:14px;line-height:1.85}
+  .about-body p:last-child{margin-bottom:0}
+  .checklist{list-style:none;display:grid;gap:14px}
+  .checklist li{
+    display:flex;gap:12px;align-items:flex-start;
+    font-size:14.5px;color:#3a3b44;
+  }
+  .checklist .tick{
+    flex-shrink:0;width:22px;height:22px;border-radius:50%;
+    background:#eaf7ec;display:grid;place-items:center;margin-top:2px;
+  }
+  .checklist .tick svg{width:12px;height:12px}
+  .checklist b{color:var(--eggplant-deep)}
+
+  /* ---------- download ---------- */
+  .download{
+    background:linear-gradient(160deg,#241a37,#3d2660);
+    border-radius:22px;padding:38px;color:#f2eefa;
+    display:flex;gap:34px;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;position:relative;overflow:hidden;
+  }
+  .download::before{
+    content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;
+    border-radius:50%;background:radial-gradient(circle,rgba(126,231,135,.18),transparent 70%);
+  }
+  .download h2{color:#fff;font-size:23px}
+  .download p{font-size:14px;color:#c5bcd9;margin-top:8px;max-width:52ch}
+  .dl-note{font-size:12px;color:#a79fb8;margin-top:10px}
+  .btn-dl{
+    background:var(--leaf);color:#12220f;font-weight:800;
+    padding:14px 30px;border-radius:999px;font-size:15px;
+    display:inline-flex;align-items:center;gap:9px;
+    pointer-events:none;opacity:.95;
+  }
+
+  /* ---------- faq ---------- */
+  details.faq{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:16px 20px;margin-bottom:12px;
+  }
+  details.faq summary{
+    cursor:pointer;font-weight:700;font-size:15px;color:var(--ink);
+    list-style:none;display:flex;justify-content:space-between;gap:12px;
+  }
+  details.faq summary::-webkit-details-marker{display:none}
+  details.faq summary::after{content:"+";color:var(--eggplant);font-weight:800;font-size:18px;line-height:1}
+  details.faq[open] summary::after{content:"–"}
+  details.faq p{font-size:14px;color:var(--muted);margin-top:10px;line-height:1.8}
+
+  /* ---------- footer ---------- */
+  footer.site{
+    background:#15121d;color:#a79fb8;padding:40px 0 30px;margin-top:0;
+  }
+  .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+  .foot-brand{max-width:340px}
+  .foot-brand .logo-text{color:#efeaf5;font-size:16px}
+  .foot-brand p{font-size:13px;margin-top:10px;line-height:1.75;color:#8f88a0}
+  .foot-links{display:flex;gap:44px;flex-wrap:wrap}
+  .foot-col h4{font-size:13px;color:#d8d2e6;margin-bottom:10px;font-weight:700;letter-spacing:.4px}
+  .foot-col a{display:block;font-size:13px;color:#8f88a0;margin-bottom:7px;transition:color .16s}
+  .foot-col a:hover{color:var(--leaf)}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,.09);margin-top:28px;padding-top:18px;
+    font-size:12px;color:#6f6880;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:32px}
+    .hero-art{max-width:380px;margin:0 auto}
+    .cards{grid-template-columns:repeat(2,1fr)}
+    .ep-list{grid-template-columns:1fr}
+    .about-grid{grid-template-columns:1fr;gap:28px}
+    .search-box{margin-left:0;width:100%}
+    .search-box input{width:100%}
+  }
+  @media (max-width:600px){
+    .nav-inner{gap:12px}
+    nav.main{margin-left:0;order:3;width:100%;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
+    nav.main a{white-space:nowrap;font-size:13.5px}
+    .nav-cta{order:2;margin-left:auto;font-size:13px;padding:8px 14px}
+    .hero{padding:40px 0 40px}
+    section{padding:40px 0}
+    .cards{grid-template-columns:1fr}
+    .download{padding:26px}
+    .hero-stats{gap:18px}
+    .stat b{font-size:19px}
+    .foot-links{gap:28px}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top" aria-label="茄子抖音短视频首页">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 8c8 7 11 13 11 19 0 5-2.5 8.5-5 10.5 1-6-1.5-10.5-6-14 1 7-1 12-5 15-2.5-3.5-3.5-7-1.5-13-5 3.5-7.5 8.5-6 14.5-4-3.5-6-7.5-6-13C13.5 20 20 13 32 8Z" fill="#7ee787"/>
+          <path d="M32 21c-2.5 7-1 11 1.5 14.5 2.5-2.5 3.5-6 2.5-11 3.5 2.5 5 6.5 5 10 0 5-4.5 9-9 9s-9-4-9-9c0-5 4-10 9-13.5Z" fill="#d4ff8a"/>
+        </svg>
+      </span>
+      <span class="logo-text">茄子抖音短视频</span>
+    </a>
+    <nav class="main" aria-label="主导航">
+      <a href="#topics">内容分类</a>
+      <a href="#library">片段目录</a>
+      <a href="#about">了解本站</a>
+      <a href="#download">获取内容</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="nav-cta" href="#library">开始浏览</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>短视频内容导航</span>
+        <h1 id="hero-title">茄子抖音短视频</h1>
+        <p class="hero-sub">把分散的茄子系列短视频按主题归拢到一处：短剧片段、日常记录、热门合辑，都能从分类进入，找到想看的茄子抖音短视频内容。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#library">浏览片段目录
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#topics">查看分类说明</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>3</b><span>内容分类</span></div>
+          <div class="stat"><b>8</b><span>精选片段</span></div>
+          <div class="stat"><b>1</b><span>统一入口</span></div>
+        </div>
+      </div>
+      <figure class="hero-art">
+        <div class="phone">
+          <div class="phone-top" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="phone-screen">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M32 8c8 7 11 13 11 19 0 5-2.5 8.5-5 10.5 1-6-1.5-10.5-6-14 1 7-1 12-5 15-2.5-3.5-3.5-7-1.5-13-5 3.5-7.5 8.5-6 14.5-4-3.5-6-7.5-6-13C13.5 20 20 13 32 8Z" fill="#c9a6f0"/>
+              <path d="M32 21c-2.5 7-1 11 1.5 14.5 2.5-2.5 3.5-6 2.5-11 3.5 2.5 5 6.5 5 10 0 5-4.5 9-9 9s-9-4-9-9c0-5 4-10 9-13.5Z" fill="#e7d4ff"/>
+            </svg>
+            <div class="play-badge">
+              <em>茄子短剧精选</em>
+              <em>竖屏</em>
+            </div>
+          </div>
+        </div>
+        <figcaption>茄子抖音短视频 · 竖屏内容示意</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- TOPICS -->
+  <section id="topics">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">内容分类</div>
+        <h2>先从三类内容进入</h2>
+        <p class="sec-desc">茄子抖音短视频的内容跨度较大，按观看目的分成短剧、日常与合辑三类，比逐条翻找更容易定位。</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2.5" stroke="#5b3a86" stroke-width="1.8"/><path d="M10 9l4.5 2.5L10 14V9Z" fill="#5b3a86"/><path d="M8 21h8" stroke="#5b3a86" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h3>茄子短剧片段</h3>
+          <p>以连续剧情为主，单个片段时长较短，适合按顺序连着看。清单里标注了片段在剧情中的位置，方便判断从哪里接上。</p>
+          <div class="tag-row"><span class="tag">连续剧情</span><span class="tag">竖屏</span><span class="tag">短时观看</span></div>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="#5b3a86" stroke-width="1.8"/><path d="M12 7.5V12l3 2" stroke="#5b3a86" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h3>茄子日常记录</h3>
+          <p>生活化的随手拍，节奏松散，单条即可独立观看。适合碎片时间浏览，不依赖前后剧情，也不会打断观看顺序。</p>
+          <div class="tag-row"><span class="tag">随手拍</span><span class="tag">独立成条</span><span class="tag">碎片时间</span></div>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="#5b3a86" stroke-width="1.8" stroke-linecap="round"/><circle cx="18.5" cy="17" r="2" fill="#5b3a86"/></svg>
+          </div>
+          <h3>热门合辑整理</h3>
+          <p>把传播较广的片段合并成主题清单，按话题而非时间排列。想快速了解某类内容时，从合辑入手比单条搜索更省事。</p>
+          <div class="tag-row"><span class="tag">主题清单</span><span class="tag">按话题</span><span class="tag">快速了解</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIBRARY -->
+  <section id="library" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">片段目录</div>
+        <h2>按分类筛选精选片段</h2>
+        <p class="sec-desc">下方清单为站内整理的内容条目，选择分类或输入关键词即可缩小范围，结果会即时更新。</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="片段筛选">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">全部</button>
+        <button class="chip" type="button" data-filter="短剧" aria-pressed="false">短剧</button>
+        <button class="chip" type="button" data-filter="日常" aria-pressed="false">日常</button>
+        <button class="chip" type="button" data-filter="合辑" aria-pressed="false">合辑</button>
+        <div class="search-box">
+          <label for="q" class="visually-hidden" style="position:absolute;left:-9999px">搜索片段</label>
+          <input id="q" type="search" placeholder="搜索标题或标签" autocomplete="off">
+          <button type="button" id="clearBtn">清空</button>
+        </div>
+      </div>
+
+      <div class="ep-list" id="epList">
+        <article class="ep" data-cat="短剧" data-keys="短剧 剧情 开篇 茄子">
+          <div class="ep-idx">01</div>
+          <div class="ep-body">
+            <h3>茄子短剧 · 开篇片段</h3>
+            <p>交代人物与场景的起始段落，观看连续剧情建议从这里开始。</p>
+            <div class="ep-meta"><span>短剧</span><span>连续观看</span></div>
+          </div>
+        </article>
+        <article class="ep" data-cat="短剧" data-keys="短剧 转折 剧情 茄子">
+          <div class="ep-idx">02</div>
+          <div class="ep-body">
+            <h3>茄子短剧 · 中段转折</h3>
+            <p>剧情推进较快的段落，单独观看也能理解，但承接上文更完整。</p>
+            <div class="ep-meta"><span>短剧</span><span>承接上文</span></div>
+          </div>
+        </article>
+        <article class="ep" data-cat="日常" data-keys="日常 随手拍 生活 茄子">
+          <div class="ep-idx">03</div>
+          <div class="ep-body">
+            <h3>茄子日常 · 随手记录</h3>
+            <p>生活场景中的短记录，节奏舒缓，适合碎片时间单独观看。</p>
+            <div class="ep-meta"><span>日常</span><span>独立成条</span></div>
+          </div>
+        </article>
+        <article class="ep" data-cat="日常" data-keys="日常 花絮 幕后 茄子">
+          <div class="ep-idx">04</div>
+          <div class="ep-body">
+            <h3>茄子日常 · 拍摄花絮</h3>
+            <p>拍摄间隙的花絮片段，与短剧内容互为补充，可独立观看。</p>
+            <div class="ep-meta"><span>日常</span><span>花絮</span></div>
+          </div>
+        </article>
+        <article class="ep" data-cat="合辑" data-keys="合辑 热门 话题 茄子">
+          <div class="ep-idx">05</div>
+          <div class="ep-body">
+            <h3>茄子合辑 · 热门话题精选</h3>
+            <p>按话题归拢的片段集合，适合想快速了解某类内容的访问者。</p>
+            <div class="ep-meta"><span>合辑</span><span>按话题</span></div>
+          </div>
+        </article>
+        <article class="ep" data-cat="合辑" data-keys="合辑 经典 片段 合集 茄子">
+          <div class="ep-idx">06</div>
+          <div class="ep-body">
+            <h3>茄子合辑 · 经典片段合集</h3>
+            <p>把传播较广的片段集中呈现，顺序按话题排列而非发布时间。</p>
+            <div class="ep-meta"><span>合辑</span><span>集中呈现</span></div>
+          </div>
+        </article>
+        <article class="ep" data-cat="短剧" data-keys="短剧 收尾 剧情 茄子">
+          <div class="ep-idx">07</div>
+          <div class="ep-body">
+            <h3>茄子短剧 · 收尾段落</h3>
+            <p>阶段性收束的段落，建议在看完前两段后再进入，理解更顺畅。</p>
+            <div class="ep-meta"><span>短剧</span><span>建议顺序</span></div>
+          </div>
+        </article>
+        <article class="ep" data-cat="日常" data-keys="日常 对话 轻松 茄子">
+          <div class="ep-idx">08</div>
+          <div class="ep-body">
+            <h3>茄子日常 · 轻松对话</h3>
+            <p>以对话为主的轻松片段，不依赖剧情背景，随时可以点开。</p>
+            <div class="ep-meta"><span>日常</span><span>轻松</span></div>
+          </div>
+        </article>
+      </div>
+      <div class="empty" id="emptyState" hidden>没有匹配的片段，换个分类或关键词试试。</div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-band">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">了解本站</div>
+        <h2>这个页面解决什么问题</h2>
+        <p class="sec-desc">茄子抖音短视频分散在不同条目里，逐条找费时。本站做的是归类与索引，不生产也不转载视频本体。</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-body">
+          <p>很多访问者搜到茄子抖音短视频时，并不确定要看的到底是连续短剧、生活记录还是热门合集。页面的第一件事，是把这三类内容分开说明，让你先判断方向，再进入清单。</p>
+          <p>第二件事是给出观看顺序的提示。短剧类条目会标明所处段落位置，日常与合辑则注明是否独立成条。这类信息在原始列表里通常看不到，但对连续观看影响不小。</p>
+          <p>第三件事是保持入口克制。页面不堆叠跳转按钮，所有分类、清单和说明都留在同一页内，便于一次阅读完成判断，再决定是否去往具体平台观看茄子抖音短视频。</p>
+        </div>
+        <ul class="checklist">
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#3f9e58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>分类先行：</b>短剧、日常、合辑三类各自标注观看方式，减少误点。</span></li>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#3f9e58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>筛选可用：</b>分类切换与关键词搜索在页面内直接生效，无需跳转。</span></li>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#3f9e58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>顺序提示：</b>连续剧情标注段落位置，帮助判断从哪里接上。</span></li>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#3f9e58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>边界清楚：</b>仅提供索引与说明，不承载视频文件本身。</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section id="download">
+    <div class="wrap">
+      <div class="download">
+        <div>
+          <h2>获取茄子抖音短视频内容清单</h2>
+          <p>清单按分类整理片段标题与观看提示，适合离线查看或转给朋友。下载入口准备好后会替换为正式地址。</p>
+          <div class="dl-note">当前为占位入口，文件尚未上架。</div>
+        </div>
+        <a class="btn-dl" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M5 19h14" stroke="#12220f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          下载
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">常见问题</div>
+        <h2>浏览前可能想知道的几点</h2>
+      </div>
+      <details class="faq" open>
+        <summary>这里的片段是从哪里来的？</summary>
+        <p>页面只做茄子抖音短视频的条目整理与导航，不存放视频文件。清单中的标题与提示用于帮助判断内容方向，实际观看请前往对应平台。</p>
+      </details>
+      <details class="faq">
+        <summary>为什么强调观看顺序？</summary>
+        <p>短剧类内容由多个片段组成，顺序不同理解会有差异。目录中标注了开篇、中段与收尾，建议按提示进入，日常与合辑类则不受顺序限制。</p>
+      </details>
+      <details class="faq">
+        <summary>筛选和搜索是怎么用的？</summary>
+        <p>点击分类按钮会只保留对应类型的条目；在搜索框输入标题或标签中的词，结果会同时叠加分类条件。点“清空”可恢复全部条目。</p>
+      </details>
+      <details class="faq">
+        <summary>下载按钮为什么点不了？</summary>
+        <p>内容清单尚未上架，按钮目前为占位状态，避免误触。上线后会替换为正式地址，届时可直接下载茄子抖音短视频内容清单。</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="logo-text">茄子抖音短视频</span>
+        <p>茄子抖音短视频内容索引页，按短剧、日常与合辑分类整理片段，提供观看顺序提示与站内筛选，帮助你更快找到想看的内容。</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h4>站内导航</h4>
+          <a href="#topics">内容分类</a>
+          <a href="#library">片段目录</a>
+          <a href="#about">了解本站</a>
+          <a href="#download">获取内容</a>
+        </div>
+        <div class="foot-col">
+          <h4>内容相关</h4>
+          <a href="#library">茄子短剧片段</a>
+          <a href="#library">茄子日常记录</a>
+          <a href="#library">热门合辑整理</a>
+          <a href="#faq">常见问题</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2024 茄子抖音短视频 · 内容索引页</span>
+      <span>页面内容为条目整理，视频本体请前往对应平台观看</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var items = Array.prototype.slice.call(document.querySelectorAll('.ep'));
+  var q = document.getElementById('q');
+  var clearBtn = document.getElementById('clearBtn');
+  var empty = document.getElementById('emptyState');
+  var current = 'all';
+
+  function apply(){
+    var term = (q.value || '').trim().toLowerCase();
+    var shown = 0;
+    items.forEach(function(el){
+      var catOk = current === 'all' || el.getAttribute('data-cat') === current;
+      var keyText = (el.getAttribute('data-keys') || '') + ' ' + el.textContent.toLowerCase();
+      var termOk = !term || keyText.indexOf(term) !== -1;
+      var ok = catOk && termOk;
+      el.style.display = ok ? '' : 'none';
+      if(ok) shown++;
+    });
+    empty.hidden = shown !== 0;
+  }
+
+  chips.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      current = btn.getAttribute('data-filter');
+      chips.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      apply();
+    });
+  });
+
+  q.addEventListener('input', apply);
+  clearBtn.addEventListener('click', function(){
+    q.value = '';
+    current = 'all';
+    chips.forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-filter') === 'all' ? 'true' : 'false'); });
+    apply();
+    q.focus();
+  });
+
+  apply();
+})();
+</script>
+</body>
+                </html>
